@@ -1,0 +1,24 @@
+{
+  "name": "GitHubActionTGBot",
+  "version": "1.0.0",
+  "description": "This GitHub action will send update messages to your telegram bot",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/buddhikac96/GitHubActionTGBot.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/buddhikac96/GitHubActionTGBot/issues"
+  },
+  "homepage": "https://github.com/buddhikac96/GitHubActionTGBot#readme",
+  "dependencies": {
+    "@actions/core": "^1.2.6",
+    "@actions/github": "^4.0.0"
+  }
+}
