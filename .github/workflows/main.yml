@@ -1,9 +1,7 @@
 on:
-    -
-        issue_comment:
-            types: [created, deleted]
-    -
-        push
+    issue_comment:
+        types: [created, deleted]
+    push
 
 
 jobs:
