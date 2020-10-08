@@ -7,10 +7,10 @@ inputs:
         default: 'World'
     iu_title:
         description: Issue title 
-        default: ${{ github.event.issue.title }}
+        default: No issue
     comment:
         description: Github comment
-        default: ${{ github.event.comment.body }}
+        default: No comment
 outputs:
     time: # id of output
         description: 'The time we greeted you'
