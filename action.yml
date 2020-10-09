@@ -4,9 +4,6 @@ inputs:
     chatId:
         description: 'Telegram Chat Id'
         required: true
-    event:
-        description: GitHub event
-        required: true
 outputs:
     time:
         description: 'The time we greeted you'
