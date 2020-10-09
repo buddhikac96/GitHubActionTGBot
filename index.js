@@ -39,7 +39,7 @@ function pushEventAction(payload, tgtoken, chatId){
     
     var chatId = core.getInput('chatId');
 
-    const bot = new Bot(tgtoken)
+    const bot = new TelegramBot(tgtoken, {polling: true});
 
     const output = `
         #Push Triggered
