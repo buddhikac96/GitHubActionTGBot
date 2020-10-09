@@ -1,14 +1,17 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
+const TelegramBot = require('node-telegram-bot-api');
 
 try {
 
     const eventName = process.env.GITHUB_EVENT_NAME;
     const payload = github.context.payload;
+    const tgtoken = core.getInput('TgToken');
+    const chatId = core.getInput('chatId');
 
     switch (eventName){
         case "push":
-            pushEventAction(payload);
+            pushEventAction(payload, tgtoken, chatId);
             break;
         case "issue_comment":
             issueCommentEvent(payload);
@@ -30,10 +33,21 @@ try {
 
 }
 
-function pushEventAction(payload){
+function pushEventAction(payload, tgtoken, chatId){
     console.log("push event triggered");
     console.log(payload.pusher.name);
-    // var chatId = core.getInput('chatId');
+    
+    var chatId = core.getInput('chatId');
+
+    const bot = new Bot(tgtoken)
+
+    const output = `
+        #Push Triggered
+        By {chatId.chat.first_name}
+    `
+
+    bot.sendMessage(chatId.chat.id , output , {parse_mode : "Markdown"})
+
 }
 
 

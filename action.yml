@@ -4,6 +4,9 @@ inputs:
     chatId:
         description: 'Telegram Chat Id'
         required: true
+    TgToken:
+        description: Telegram token
+        required: true
 outputs:
     time:
         description: 'The time we greeted you'

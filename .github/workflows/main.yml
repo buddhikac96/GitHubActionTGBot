@@ -14,7 +14,8 @@ jobs:
                 uses: ./
                 id: hello
                 with:
-                    chatId: '655510580'
+                    chatId: ${{ secrets.TGCHAT }}
+                    TgToken: ${{ secrets.TGTOKEN }}
             - 
                 name: Get the output time
                 run: echo "The time was ${{ steps.hello.outputs.time }}"
