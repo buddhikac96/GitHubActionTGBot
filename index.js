@@ -32,7 +32,7 @@ try {
 
 function pushEventAction(payload){
     console.log("push event triggered");
-    console.log(payload.pusher.name);
+    console.log(payload.pusher);
     // var chatId = core.getInput('chatId');
 }
 
