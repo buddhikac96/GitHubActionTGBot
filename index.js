@@ -1,11 +1,9 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
 
-import {context} from '@actions/github';
-
 try {
 
-    const eventName = context.eventName;
+    const eventName = process.env.GITHUB_EVENT_NAME;
 
     switch (eventName){
         case "push":
