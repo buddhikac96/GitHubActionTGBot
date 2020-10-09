@@ -4,30 +4,19 @@ const github = require('@actions/github');
 try {
 
     const eventName = process.env.GITHUB_EVENT_NAME;
+    const payload = JSON.stringify(github.context.payload, undefined, 2)
 
     switch (eventName){
         case "push":
-            pushEventAction();
+            pushEventAction(payload);
             break;
         case "pull":
-            pullEventAction();
+            pullEventAction(payload);
             break;
         default:
-            noEventAction();
+            noEventAction(payload);
     }
-
-    // const chatId = core.getInput('chatId');
-    // const event = core.getInput('event');
-
-    // console.log(`Hello ${chatId}!`);
-   
     
-    // const time = (new Date()).toTimeString();
-    // core.setOutput("time", time);
-    
-    // Get the JSON webhook payload for the event that triggered the workflow
-    // const payload = JSON.stringify(github.context.payload, undefined, 2)
-    // console.log(`The event payload: ${payload}`);
 
 } catch (error) {
   
@@ -35,21 +24,24 @@ try {
 
 }
 
-function pushEventAction(){
+function pushEventAction(payload){
     console.log("push event triggered");
     var chatId = core.getInput('chatId');
     console.log(chatId);
+    console.log(payload);
 }
 
 
-function pullEventAction(){
+function pullEventAction(payload){
     console.log("pull event triggered");
     var chatId = core.getInput('chatId');
     console.log(chatId);
+    console.log(payload);
 }
 
-function noEventAction(){
+function noEventAction(payload){
     console.log("No event triggered");
     var chatId = core.getInput('chatId');
     console.log(chatId);
+    console.log(payload);
 }
