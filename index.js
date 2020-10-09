@@ -33,7 +33,7 @@ try {
 
 }
 
-function pushEventAction(payload, tgtoken, chatId){
+function pushEventAction(payload, bot, chatId){
     console.log("push event triggered");
     console.log(payload.pusher.name);
     
