@@ -16,8 +16,7 @@ jobs:
             uses: ./
             id: hello
             with:
-                chatId: 
-                    - 655510580
+                chatId: '655510580'
                 event: ${{ github.event }}
         - 
             name: Get the output time
