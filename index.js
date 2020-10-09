@@ -4,7 +4,7 @@ const github = require('@actions/github');
 try {
 
     const eventName = process.env.GITHUB_EVENT_NAME;
-    const payload = JSON.stringify(github.context.payload, undefined, 2)
+    const payload = github.context.payload;
 
     switch (eventName){
         case "push":
@@ -32,7 +32,7 @@ try {
 
 function pushEventAction(payload){
     console.log("push event triggered");
-    console.log(payload.pusher);
+    console.log(payload.pusher.name);
     // var chatId = core.getInput('chatId');
 }
 
