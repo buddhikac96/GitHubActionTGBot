@@ -9,9 +9,12 @@ try {
     const tgtoken = core.getInput('TgToken');
     const chatId = core.getInput('chatId');
 
+    const bot = new TelegramBot(tgtoken, {polling: true});
+
+
     switch (eventName){
         case "push":
-            pushEventAction(payload, tgtoken, chatId);
+            pushEventAction(payload, bot, chatId);
             break;
         case "issue_comment":
             issueCommentEvent(payload);
@@ -39,8 +42,7 @@ function pushEventAction(payload, bot, chatId){
     
     var chatId = core.getInput('chatId');
 
-    const bot = new TelegramBot(tgtoken, {polling: true});
-
+    
     const output = `
         #Push Triggered
         By {chatId.chat.first_name}
