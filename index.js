@@ -10,8 +10,14 @@ try {
         case "push":
             pushEventAction(payload);
             break;
-        case "pull":
-            pullEventAction(payload);
+        case "issue_comment":
+            issueCommentEvent(payload);
+            break;
+        case "issues":
+            issuesEvent(payload);
+            break;
+        case "fork":
+            forkEvent(payload);
             break;
         default:
             noEventAction(payload);
@@ -19,29 +25,34 @@ try {
     
 
 } catch (error) {
-  
+
     core.setFailed(error.message);
 
 }
 
 function pushEventAction(payload){
     console.log("push event triggered");
-    var chatId = core.getInput('chatId');
-    console.log(chatId);
-    console.log(payload);
+    console.log(payload.pusher.name);
+    // var chatId = core.getInput('chatId');
 }
 
 
-function pullEventAction(payload){
-    console.log("pull event triggered");
+function issueCommentEvent(payload){
+    console.log("Issue comment event triggered");
+    console.log(`Issue comment done by {payload.comment.user.login}`)
+    console.log(`Issue comment {payload.comment.body}`)
+}
+
+function issuesEvent(payload){
+    console.log("issuesEvent event triggered");
     var chatId = core.getInput('chatId');
-    console.log(chatId);
-    console.log(payload);
+}
+
+function forkEvent(payload){
+    console.log("forkEvent event triggered");
+    var chatId = core.getInput('chatId');
 }
 
 function noEventAction(payload){
     console.log("No event triggered");
-    var chatId = core.getInput('chatId');
-    console.log(chatId);
-    console.log(payload);
 }
