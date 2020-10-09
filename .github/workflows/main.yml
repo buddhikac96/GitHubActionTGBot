@@ -16,8 +16,9 @@ jobs:
             uses: ./
             id: hello
             with:
-                who-to-greet: 'Mona the Octocat'
-                comment: ${{ github.event.commits[0].message }}
+                charId: 
+                    - 655510580
+                event: ${{ github.event }}
         - 
             name: Get the output time
             run: echo "The time was ${{ steps.hello.outputs.time }}"

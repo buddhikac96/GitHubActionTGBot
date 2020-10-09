@@ -1,18 +1,14 @@
 name: 'Hello World'
 description: 'Greet someone and record the time'
 inputs:
-    who-to-greet:
-        description: 'Who to greet'
+    chatId:
+        description: 'Telegram Chat Id'
         required: true
-        default: 'World'
-    issue:
-        description: Issue title 
-        default: No issue
-    comment:
-        description: Github comment
-        default: No comment
+    event:
+        description: GitHub event
+        required: true
 outputs:
-    time: # id of output
+    time:
         description: 'The time we greeted you'
 runs:
     using: 'node12'
