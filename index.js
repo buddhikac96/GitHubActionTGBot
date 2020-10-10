@@ -1,26 +1,22 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
 const TelegramBot = require('node-telegram-bot-api');
+require("dotenv").config
 
-try {
+const {
+    INPUT_TOKEN: tgtoken, 
+    INPUT_CHAT: chatid,
+} = process.env;
 
-    var payload = github.context.payload;
 
-    var tgtoken = core.getInput('TgToken');
-    var chatId = core.getInput('chatId');
+const payload = github.context.payload;
 
-    console.log(tgtoken);
-    console.log(chatId);
+console.log(tgtoken);
+console.log(chatid);
 
-    var bot = new TelegramBot(tgtoken);
+const bot = new TelegramBot(tgtoken);
 
-    console.log("push event triggered");
-    console.log(payload.pusher.name);
+console.log("push event triggered");
+console.log(payload.pusher.name);
 
-    bot.sendMessage(chatId , 'hi');
-
-} catch (error) {
-
-    core.setFailed(error.message);
-
-}
+bot.sendMessage(chatid , 'hi');
