@@ -7,8 +7,8 @@ try {
     const eventName = process.env.GITHUB_EVENT_NAME;
     const payload = github.context.payload;
 
-    const tgtoken = process.env.TGTOKEN;
-    const chatId = process.env.TGCHAT
+    const tgtoken = core.getInput('TgToken');
+    const chatId = core.getInput('chatId')
 
     const bot = new TelegramBot(tgtoken);
 
