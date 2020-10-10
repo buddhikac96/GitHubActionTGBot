@@ -5,14 +5,14 @@ const TelegramBot = require('node-telegram-bot-api');
 const payload = github.context.payload;
 
 const tgtoken = core.getInput('TgToken');
+const chatId = core.getInput('chatId');
 
 const bot = new TelegramBot(tgtoken, {polling: true});
 
-console.log("push event triggered");
-console.log(payload.pusher.name);
+const evresp = (gevent) => {
+    console.log(gevent);
+    return 'Hi';
+}
 
-bot.on('message', (msg) => {
-    const chatId = msg.chat.id;
-  
-    bot.sendMessage(chatId, 'Received your message');
-});
+const output = evresp(process.env.ghevent);
+bot.sendMessage(chatId, output)
