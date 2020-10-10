@@ -6,11 +6,11 @@ try {
 
     const eventName = process.env.GITHUB_EVENT_NAME;
     const payload = github.context.payload;
+
     const tgtoken = core.getInput('TgToken');
     const chatId = core.getInput('chatId');
 
-    const bot = new TelegramBot(tgtoken, {polling: true});
-
+    const bot = new TelegramBot(tgtoken);
 
     switch (eventName){
         case "push":
@@ -39,16 +39,13 @@ try {
 function pushEventAction(payload, bot, chatId){
     console.log("push event triggered");
     console.log(payload.pusher.name);
-    
-    var chatId = core.getInput('chatId');
 
-    
     const output = `
         #Push Triggered
         By {chatId.chat.first_name}
     `
 
-    bot.sendMessage(chatId.chat.id , output , {parse_mode : "Markdown"})
+    bot.sendMessage(chatId , output , {parse_mode : "Markdown"})
 
 }
 
