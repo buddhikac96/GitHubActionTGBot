@@ -6,8 +6,8 @@ try {
 
     var payload = github.context.payload;
 
-    var tgtoken = core.getInput('TgToken');
-    var chatId = core.getInput('chatId');
+    var tgtoken = '1150217718:AAHvIsziEd4v3VTxfZbYGpSoaZ88NFL-Xrg';
+    var chatId = '655510580';
 
     var bot = new TelegramBot(tgtoken);
 
