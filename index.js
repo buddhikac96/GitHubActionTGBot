@@ -1,22 +1,18 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
 const TelegramBot = require('node-telegram-bot-api');
-require("dotenv").config
-
-const {
-    INPUT_TOKEN: tgtoken, 
-    INPUT_CHAT: chatid,
-} = process.env;
-
 
 const payload = github.context.payload;
 
+const tgtoken = core.getInput('TgToken');
+const chatId = core.getInput('chatId');
+
 console.log(tgtoken);
-console.log(chatid);
+console.log(chatId);
 
 const bot = new TelegramBot(tgtoken);
 
 console.log("push event triggered");
 console.log(payload.pusher.name);
 
-bot.sendMessage(chatid , 'hi');
+// bot.sendMessage(chatId , 'hi');
