@@ -7,7 +7,7 @@ const payload = github.context.payload;
 const tgtoken = core.getInput('TgToken');
 const chatId = core.getInput('chatId');
 
-const bot = new TelegramBot(tgtoken, {polling: true});
+const bot = new TelegramBot(tgtoken);
 
 const evresp = (gevent) => {
     console.log(gevent);
