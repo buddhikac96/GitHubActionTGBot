@@ -9,6 +9,9 @@ try {
     var tgtoken = core.getInput('TgToken');
     var chatId = core.getInput('chatId');
 
+    console.log(tgtoken);
+    console.log(chatId);
+
     var bot = new TelegramBot(tgtoken);
 
     console.log("push event triggered");
